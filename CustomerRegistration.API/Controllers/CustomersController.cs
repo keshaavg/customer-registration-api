@@ -43,7 +43,7 @@ namespace CustomerRegistration.API.Controllers
 
             if (customerId == 0)
             {
-                return new ConflictObjectResult($"Customer alredy exist with id {customer.CustomerId}");
+                return new ConflictObjectResult($"Customer already exist with id {customer.CustomerId}");
             }
             else
             {

@@ -1,6 +1,6 @@
 # Customer Registration API
 
-Customer Registration API is ASP.Net Core web aPI. This is created as an exercise to build example  REST API to allow customers to register 
+Customer Registration API is ASP.Net Core Web API. This is created as an exercise to build example  REST API to allow customers to register 
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 1 - Empty First name - Should Fail 
+### Invalid Customer Case 1 - Empty First name - Should Fail 
 
 ```
 {
@@ -63,7 +63,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 2 - Empty Last name - Should Fail with BadRequest
+### Invalid Customer Case 2 - Empty Last name - Should Fail with BadRequest
 
 ```
 {
@@ -75,7 +75,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 3 - Empty policyReferenceNumber - Should Fail with BadRequest
+### Invalid Customer Case 3 - Empty policyReferenceNumber - Should Fail with BadRequest
 
 ```
 {
@@ -87,7 +87,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 4 - Invalid policyReferenceNumbe pattern - Should Fail with BadRequest
+### Invalid Customer Case 4 - Invalid policyReferenceNumbe pattern - Should Fail with BadRequest
 
 ```
 {
@@ -100,7 +100,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 5 - Empty Date of Birth and Email - Should Fail with BadRequest
+### Invalid Customer Case 5 - Empty Date of Birth and Email - Should Fail with BadRequest
 
 ```
 {
@@ -111,7 +111,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 6 - Customer Age less than 18 - Should Fail with BadRequest
+### Invalid Customer Case 6 - Customer Age less than 18 - Should Fail with BadRequest
 
 ```
 {
@@ -123,7 +123,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 8 - Wrong email pattern - Should Fail with BadRequest
+### Invalid Customer Case 8 - Wrong email pattern - Should Fail with BadRequest
 
 ```
 {
@@ -135,7 +135,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
-### InValid Customer Case 9 - Customer Age less than 18 - Should Fail with Conflict as customer id already exist
+### Invalid Customer Case 9 - Customer Age less than 18 - Should Fail with Conflict as customer id already exist
 
 ```
 {
