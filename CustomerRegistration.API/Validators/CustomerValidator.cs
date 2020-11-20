@@ -37,7 +37,7 @@ namespace CustomerRegistration.API.Validators
             // must match pattern defined in config. For ex - `AA-0001`
             RuleFor(customer => customer.PolicyReferenceNumber)
                 .NotEmpty()
-                .Matches(config.PolicyReferencePattern)
+                .Matches(config.PolicyReferencePattern);
 
             // Deducting minimum customer age defiend in config from todays date to compare with Input date of birth
             // (Ignores Hours, minutes and seconds component), If Input date is less than date to compare 
