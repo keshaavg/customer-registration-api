@@ -147,5 +147,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 }
 ```
 
+## Design Consideration
 
-
+* For Validation I used Fluent validation library but Data Annotations could have been used as well. Both are great solutions that provide powerful validation without littering controller code. 
+* Did not implemeted any duplication checks for customer data(such as name and policy) considering it out of scope
