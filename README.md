@@ -17,17 +17,17 @@ This API should contain one endpoint. This endpoint should validate the customer
 
 ### Validation Rules
 * Policy holder’s first name and surname are both required and should be between 3 and 50 chars.
-* Policy Reference number is required and should match the following format XX-999999. Where XX are any capitalised alpha character followed by a hyphen and 6 numbers. If supplied the policy holders DOB should mean the customer is at least 18 years old at the point of registering.
+* Policy Reference number is required and should match the following format XX-999999. Where XX are any capital alpha character followed by a hyphen and 6 numbers. If supplied the policy holders DOB should mean the customer is at least 18 years old at the point of registering.
 * If supplied the policy holders email address should contain a string of at least 4 alpha numeric chars followed by an ‘@’ sign and then another string of at least 2 alpha numeric
 chars. The email address should end in either ‘.com’ or ‘.co.uk’.
 
-## Run in Dev environement
+## Run in Dev environment
 
 Clone [Repository](https://github.com/keshaavg/customer-registration-api.git) on local machine and build solution in Visual studio
 
 ## Test in Azure with Swagger open API UI
 
-Application is deployed in Azure web app and can be accessed publicity. For simplicity no authehtication is needed
+Application is deployed in Azure web app and can be accessed publicity. For simplicity no authentication is needed
 
 [Swagger Link](https://customerregistrationapi20201120120427.azurewebsites.net/swagger/index.html)
 
@@ -130,4 +130,4 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 ## Design Consideration
 
 * For Validation I used Fluent validation library but Data Annotations could have been used as well. Both are great solutions that provide powerful validation without littering controller code. 
-* Did not implemeted any duplication checks for customer data(such as name and policy) considering it out of scope
+* Did not implemented any duplication checks for customer data(such as name and policy) considering it out of scope

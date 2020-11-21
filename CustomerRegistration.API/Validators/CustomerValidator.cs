@@ -34,18 +34,18 @@ namespace CustomerRegistration.API.Validators
                 .Length(config.MinimumNameLength, config.MaximumNameLength);
 
             // Defines validation rule for PolicyReferenceNumber. PolicyReferenceNumber is required field and 
-            // must match pattern defined in config. For ex - `AA-0001`
+            // must match pattern defined in config. For ex - `AA-000001`
             RuleFor(customer => customer.PolicyReferenceNumber)
                 .NotEmpty()
                 .Matches(config.PolicyReferencePattern);
 
-            // Deducting minimum customer age defiend in config from todays date to compare with Input date of birth
+            // Deducting minimum customer age defined in config from todays date to compare with Input date of birth
             // (Ignores Hours, minutes and seconds component), If Input date is less than date to compare 
             // after deduction that means customer age is greater than defined minimum age. 
             var dateToCompare = DateTime.Now.AddYears(-config.MinimumCustomerAge).Date;
 
             // Defines validation rule for DateOfBirth. DateOfBirth is required field if email is blank or null and 
-            // customer age must be greater than defined minimuim age in config
+            // customer age must be greater than defined minimum age in config
             RuleFor(customer => customer.DateOfBirth.Date)
                 .NotEmpty().WithMessage("Either Date Of Birth or Email is required")
                 .When(customer => string.IsNullOrWhiteSpace(customer.Email))

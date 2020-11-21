@@ -56,6 +56,7 @@ namespace CustomerRegistration.API
             // Adds Swagger
             services.AddSwaggerGen();
 
+            // Adds Automapper
             services.AddAutoMapper(typeof(Startup));
         }
 

@@ -8,12 +8,12 @@
         public int MinimumCustomerAge { get; set; }
 
         /// <summary>
-        /// Gets or sets mimimum legth for first and last name
+        /// Gets or sets mimimum length for first and last name
         /// </summary>
         public int MinimumNameLength { get; set; }
 
         /// <summary>
-        /// Gets or sets maximum legth for first and last name
+        /// Gets or sets maximum length for first and last name
         /// </summary>
         public int MaximumNameLength { get; set; }
 
