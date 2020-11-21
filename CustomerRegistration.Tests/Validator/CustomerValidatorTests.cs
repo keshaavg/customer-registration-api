@@ -11,7 +11,7 @@ namespace CustomerRegistration.Tests
     /// </summary>
     public class CustomerValidatorTests
     {
-        private readonly Customer _customer;
+        private readonly CustomerDto _customer;
         private readonly CustomerValidator _customerValidator;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace CustomerRegistration.Tests
         /// </summary>
         public CustomerValidatorTests()
         {
-            this._customer = new Customer()
+            this._customer = new CustomerDto()
             {
                 FirstName = "John",
                 LastName = "Test",
@@ -78,8 +78,7 @@ namespace CustomerRegistration.Tests
         [Fact]
         public void TestCustomerObjectIsInValidForAllTheValuesSetToNull()
         {
-            var customer = new Customer();
-            this._customer.DateOfBirth = default;
+            var customer = new CustomerDto();
             var results = _customerValidator.Validate(customer);
 
             Assert.False(results.IsValid);

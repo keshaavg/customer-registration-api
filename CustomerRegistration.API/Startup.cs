@@ -1,3 +1,4 @@
+using AutoMapper;
 using CustomerRegistration.API.Model;
 using CustomerRegistration.API.Repository;
 using CustomerRegistration.API.Validators;
@@ -48,12 +49,14 @@ namespace CustomerRegistration.API
             services.AddMvc().AddFluentValidation();
 
             // This enables ASP.NET to discover specific validator for customers.
-            services.AddTransient<IValidator<Customer>, CustomerValidator>();
+            services.AddTransient<IValidator<CustomerDto>, CustomerValidator>();
 
             // Injects Customer repository
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             // Adds Swagger
             services.AddSwaggerGen();
+
+            services.AddAutoMapper(typeof(Startup));
         }
 
         /// <summary>

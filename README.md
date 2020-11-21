@@ -33,7 +33,7 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ### Endpoints
 
-* GET https://customerregistrationapi20201120120427.azurewebsites.net/customers  (Helper method to view all customer data in database) 
+* GET https://customerregistrationapi20201120120427.azurewebsites.net/customers/  (Helper method to view all customer data in database) 
 * POST https://customerregistrationapi20201120120427.azurewebsites.net/customers (Registers new customers)
 
 ## Some Test Cases
@@ -42,7 +42,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "lastName": "Surname",
   "policyReferenceNumber": "AA-111111",
@@ -55,7 +54,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "lastName": "Surname",
   "policyReferenceNumber": "AA-111111",
   "dateOfBirth": "1990-01-01T00:00:00",
@@ -67,7 +65,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "policyReferenceNumber": "AA-111111",
   "dateOfBirth": "1990-01-01T00:00:00",
@@ -79,7 +76,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "lastName": "Surname",
   "dateOfBirth": "1990-01-01T00:00:00",
@@ -91,7 +87,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "lastName": "Surname",
   "policyReferenceNumber": "AAA-1A11111",
@@ -104,7 +99,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "lastName": "Surname",
   "policyReferenceNumber": "AA-111111"
@@ -115,7 +109,6 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "lastName": "Surname",
   "policyReferenceNumber": "AA-111111",
@@ -127,23 +120,10 @@ Application is deployed in Azure web app and can be accessed publicity. For simp
 
 ```
 {
-  "customerId": 0,
   "firstName": "Test",
   "lastName": "Surname",
   "policyReferenceNumber": "AA-111111",
   "email": "tes@test.eu"
-}
-```
-
-### Invalid Customer Case 9 - Customer Age less than 18 - Should Fail with Conflict as customer id already exist
-
-```
-{
-  "customerId": 1,
-  "firstName": "Test",
-  "lastName": "Surname",
-  "policyReferenceNumber": "AA-111111",
-  "dateOfBirth": "2000-01-01T00:00:00"
 }
 ```
 

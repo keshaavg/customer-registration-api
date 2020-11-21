@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerRegistration.API.Migrations
 {
     [DbContext(typeof(CustomerContext))]
-    [Migration("20201119182615_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201121201454_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,10 +32,12 @@ namespace CustomerRegistration.API.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PolicyReferenceNumber")

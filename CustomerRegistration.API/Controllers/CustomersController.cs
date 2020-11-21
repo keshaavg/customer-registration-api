@@ -1,4 +1,5 @@
-﻿using CustomerRegistration.API.Model;
+﻿using AutoMapper;
+using CustomerRegistration.API.Model;
 using CustomerRegistration.API.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,14 +15,16 @@ namespace CustomerRegistration.API.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerRepository _repository;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Constructor, Injects <see cref="CustomerContext"/>
         /// </summary>
         /// <param name="context"></param>
-        public CustomersController(ICustomerRepository repository)
+        public CustomersController(ICustomerRepository repository, IMapper mapper)
         {
             _repository = repository ?? throw new ArgumentNullException("repository", "Customer Repository is not initialised"); ;
+            _mapper = mapper ?? throw new ArgumentNullException("mapper", "Mapper is not initialised"); ;
         }
 
         /// <summary>
@@ -32,23 +35,15 @@ namespace CustomerRegistration.API.Controllers
         /// containing error details is returned when model state is invalid.
         /// Success - 201 - Created
         /// Failure - 400- Bad Request
-        /// Duplicate - 409- Conflict
         /// </summary>
-        /// <param name="customer"><see cref="Customer"/></param>
+        /// <param name="customerDto"><see cref="Customer"/></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<Customer>> RegisterCustomer(Customer customer)
+        public async Task<ActionResult<Customer>> RegisterCustomer(CustomerDto customerDto)
         {
-            var customerId = await _repository.Add(customer);
+            var customerId = await _repository.Add(_mapper.Map<Customer>(customerDto));
 
-            if (customerId == 0)
-            {
-                return new ConflictObjectResult($"Customer already exist with id {customer.CustomerId}");
-            }
-            else
-            {
-                return new CreatedResult("", customer);
-            }
+            return new CreatedResult("", new { customerId });
         }
 
         /// <summary>

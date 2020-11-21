@@ -30,16 +30,9 @@ namespace CustomerRegistration.API.Repository
         /// <returns>If success returs newly assigned customer id else 0</returns>
         public async Task<int> Add(Customer customer)
         {
-            try
-            {
-                _context.Customers.Add(customer);
-                await _context.SaveChangesAsync();
-                return customer.CustomerId;
-            }
-            catch (DbUpdateException)
-            {
-                return 0;
-            }
+           _context.Customers.Add(customer);
+            await _context.SaveChangesAsync();
+            return customer.CustomerId;
         }
 
         /// <summary>

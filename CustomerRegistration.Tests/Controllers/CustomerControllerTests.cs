@@ -1,4 +1,5 @@
-﻿using CustomerRegistration.API;
+﻿using AutoMapper;
+using CustomerRegistration.API;
 using CustomerRegistration.API.Controllers;
 using CustomerRegistration.API.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +19,11 @@ namespace CustomerRegistration.Tests.Controllers
         {
             // Arrange
             var mockRepo = new Mock<ICustomerRepository>();
+            var mockMapper = new Mock<IMapper>();
             mockRepo.Setup(repo => repo.Add(It.IsAny<Customer>())).ReturnsAsync(1);
-            var controller = new CustomersController(mockRepo.Object);
-            var customer = new Customer();
+            mockMapper.Setup(mapper => mapper.Map<Customer>(It.IsAny<CustomerDto>())).Returns(new Customer());
+            var controller = new CustomersController(mockRepo.Object, mockMapper.Object);
+            var customer = new CustomerDto();
 
             // Act
             var result = await controller.RegisterCustomer(customer);
@@ -31,26 +34,6 @@ namespace CustomerRegistration.Tests.Controllers
             // assert
             Assert.NotNull(createdResult);
             Assert.Equal(201, createdResult.StatusCode);
-        }
-
-        [Fact]
-        public async Task RegisterCustomer_ConflictResult_WithFailureToSaveToDatabase()
-        {
-            // Arrange
-            var mockRepo = new Mock<ICustomerRepository>();
-            mockRepo.Setup(repo => repo.Add(It.IsAny<Customer>())).ReturnsAsync(0);
-            var controller = new CustomersController(mockRepo.Object);
-            var customer = new Customer();
-
-            // Act
-            var result = await controller.RegisterCustomer(customer);
-
-            // Assert
-            var conflictResult = result.Result as ConflictObjectResult;
-
-            // assert
-            Assert.NotNull(conflictResult);
-            Assert.Equal(409, conflictResult.StatusCode);
         }
     }
 }

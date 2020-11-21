@@ -5,11 +5,11 @@ using System;
 namespace CustomerRegistration.API.Validators
 {
     /// <summary>
-    /// This validator class defines validation rules for <see cref="Customer"/> seperating validation concerns from 
+    /// This validator class defines validation rules for <see cref="CustomerDto"/> seperating validation concerns from 
     /// actual class. This uses Fluent Validation which is a popular .NET library for building strongly-typed validation rules.
     /// https://fluentvalidation.net/
     /// </summary>
-    public class CustomerValidator : AbstractValidator<Customer>
+    public class CustomerValidator : AbstractValidator<CustomerDto>
     {
         /// <summary>
         /// Constructor utilising options pattern to provide strongly typed access to related 
