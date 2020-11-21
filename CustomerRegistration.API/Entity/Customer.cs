@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace CustomerRegistration.API
 {
     /// <summary>
-    /// Customer entity class. used with code first migrations
+    /// Customer entity class. Used with code first migrations
     /// </summary>
     public class Customer
     {

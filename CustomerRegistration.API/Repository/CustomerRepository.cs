@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace CustomerRegistration.API.Repository
 {
     /// <summary>
-    /// <see cref="CustomerRepository"/> which saves customers data using <see cref="CustomerContext"/>
-    /// and handles db errors
+    /// <see cref="CustomerRepository"/> encapsulate the <see cref="CustomerContext"/> and decouples
+    /// the customer controller and and database
     /// </summary>
     public class CustomerRepository : ICustomerRepository
     {

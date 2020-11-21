@@ -18,9 +18,10 @@ namespace CustomerRegistration.API.Controllers
         private readonly IMapper _mapper;
 
         /// <summary>
-        /// Constructor, Injects <see cref="CustomerContext"/>
+        /// Constructor 
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="repository"><see cref="ICustomerRepository"/> saves cutomer record to database</param>
+        /// <param name="mapper"><see cref="IMapper"/> maps <see cref="CustomerDto"/> to <see cref="Customer"/> entity </param>
         public CustomersController(ICustomerRepository repository, IMapper mapper)
         {
             _repository = repository ?? throw new ArgumentNullException("repository", "Customer Repository is not initialised"); ;
